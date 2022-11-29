@@ -1,0 +1,40 @@
+<p align="right">
+    <button type="button" class="btn btn-primary" routerLink='editpro'>Edit</button>
+  </p>
+  <table class="table table-striped">
+    <thead>
+      <tr>
+              <th scope="col">EMPLOYEE ID</th><br>
+              <th scope="col">NAME</th><br>
+              <th scope="col">EMIAL-ID</th><br>
+              <th scope="col">SKILLS</th><br>
+              <th scope="col">DESIGINATION</th><br>
+              <th scope="col">CURRENT PROJECT</th><br>
+              <th scope="col">EXPERIENCE</th><br>
+            </tr>
+      </thead>
+          <tbody>
+            <tr *ngIf= "profile">
+              <td>{{profile.empId}}</td><br>
+              <td>{{profile.empName}}</td><br>
+              <td>{{profile.empEmail}}</td><br>
+              <!-- <td>{{profile.empSkills}}</td> -->
+              <td>
+                <table>
+                    <tr style="margin:5px;" *ngFor="let e of profile.empSkills">
+                        <td class="button1">
+                            {{e.skillName}}</td>
+                    </tr>
+                </table>
+            </td><br>
+              <td>{{profile.empDesg}}</td><br>
+              <!-- <td>{{profile.currentProj}}</td> -->
+              <td><table>
+                <tr style="margin:5px;" *ngFor="let e of profile.currentProj" >
+                    <p  style="border-radius: 25px;
+                    border: 3px solid #C7B6B6; ">
+                        {{e.projectName}}</p>
+                </tr>
+            </table></td><br>
+              <td>{{profile.empExp}}</td><br>
+            </tr>

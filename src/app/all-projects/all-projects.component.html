@@ -1,0 +1,42 @@
+<p align="right">
+    <button type="button" class="btn btn-primary" routerLink='addproject'>ADD PROJECTS </button>
+    <button type="button" class="btn btn-primary" routerLink='assignproject'>ASSIGNED PROJECT</button>
+</p>
+<table class="table table-striped">
+    <tr>
+        <th>PROJECT-ID</th>
+        <th>PROJECT-NAME</th>
+        <th>SKILLS</th>
+        <th>DEADLINE</th>
+        <th>STRENGTH</th>
+           <th>MEMBERS</th>
+        <th class="action">ACTION</th>
+    </tr>
+    <tbody>
+    <tr *ngFor="let p of projectList">
+        <td *ngIf="p.projectId>999">{{p.projectId}}</td>
+        <td *ngIf="p.projectId>999">{{p.projectName}}</td>
+        <td *ngIf="p.projectId>999"><table>
+            <tr style="margin:5px;" *ngFor="let e of p.reqSkills">
+
+                <td style="border-radius: 25px; 
+                border: 3px solid #c7b6b6; ">
+                    {{e.skillName}}</td>
+            </tr>
+        </table></td>
+        <td *ngIf="p.projectId>999">{{p.deadline| date: 'dd/MM/YYYY' }}</td>
+        <td *ngIf="p.projectId>999">{{(p.members).length +"/" + p.noOfMembers}}</td>
+        <td *ngIf="p.projectId>999"> <table>
+            <tr style="margin:5px;" *ngFor="let e of p.members">
+
+                <td style="border-radius: 25px; 
+                border: 3px solid #c7b6b6; ">
+                    {{e.empName}}</td>
+            </tr>
+        </table></td>
+        <td *ngIf="p.projectId>999">
+            <button type="button" class="btn btn-danger btn-sm" routerLink="deleteproject/{{p.projectId}}">DELETE</button>
+        </td>
+    </tr>
+</tbody>
+</table>

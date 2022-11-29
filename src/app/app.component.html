@@ -1,0 +1,3 @@
+<app-login *ngIf="flag" (statusEmitter)="getEmployee($event)"></app-login>
+<app-manager *ngIf="(role=='manager')"  (logOut)="logOut()" [employee]="employee"  ></app-manager>
+<app-employee *ngIf="(role=='employee')"  [employee]="employee"></app-employee>

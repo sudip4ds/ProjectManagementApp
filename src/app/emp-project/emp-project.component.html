@@ -1,0 +1,33 @@
+<p align="right">
+    <button type="button" class="btn btn-primary" routerLink='applypost'>Applied Projects</button>
+</p>
+<table class="table table-striped">
+    <tr>
+        <th>PROJECT-ID</th>
+        <th>PROJECT-NAME</th>
+        <th>SKILLS</th>
+        <th>DEADLINE</th>
+           <th>MEMBERS</th>
+    </tr>
+    <tbody>
+    <tr *ngFor="let p of projectList">
+        <td>{{p.projectId}}</td>
+        <td>{{p.projectName}}</td>
+        <td><table>
+            <tr style="margin:5px;" *ngFor="let e of p.reqSkills">
+                <td style="border-radius: 25px;
+                border: 3px solid #C7B6B6; ">
+                    {{e.skillName}}</td>
+            </tr>
+        </table></td>
+        <td>{{p.deadline}}</td>
+        <td> <table>
+            <tr style="margin:5px;" *ngFor="let e of p.members">
+                <td style="border-radius: 25px;
+                border: 3px solid #C7B6B6; ">
+                    {{e.empName}}</td>
+            </tr>
+        </table></td>
+    </tr>
+</tbody>
+</table>

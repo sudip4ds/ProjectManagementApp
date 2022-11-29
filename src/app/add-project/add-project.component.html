@@ -1,0 +1,40 @@
+<form [formGroup]="PrAddForm"  (ngSubmit)="onsubmit()">
+    <div class="form-group row">
+        <label for="prname" class="col-sm-4 col-form-label">Project Name:</label>
+        <div class="col-sm-10">
+            <input type="text" formControlName="prname" class="form-control" id="prname" placeholder="Enter project Name">
+        <div *ngIf="PrAddForm.get('prname')?.touched && PrAddForm.get('prname')?.hasError('required')">
+                <p class="alert alert-danger">Name is mandatory</p>
+            </div>
+        </div>
+        <label for="noemp" class="col-sm-4 col-form-label">Number Of Employee:</label>
+        <div class="col-sm-10">
+            <input type="number" formControlName="noemp" class="form-control" id="noemp" placeholder="Enter Number Of Employee">
+            <div *ngIf="PrAddForm.get('noemp')?.touched && PrAddForm.get('noemp')?.hasError('required')">
+                <p class="alert alert-danger">Employee is mandatory</p>
+            </div>
+        </div>
+        <label for="deadline" class="col-sm-4 col-form-label">Dead Line:</label>
+        <div class="col-sm-10">
+            <input type="date" formControlName="deadline" class="form-control" id="deadline" placeholder="Enter DeadLine">
+            <div *ngIf="PrAddForm.get('deadline')?.touched && PrAddForm.get('deadline')?.hasError('required')">
+                <p class="alert alert-danger">DeadLine is mandatory</p>
+            </div>
+        </div>
+        <label for="req" class="col-sm-4 col-form-label">Required Skills</label>
+        <div class="col-sm-10">        </div>
+        <div style="width:50%">
+            <ng-multiselect-dropdown
+                [settings]="dropdownSettings"
+                [data]="dropdownList"
+                (onSelect)="onItemSelect($event)"
+                (onDeSelect)="onItemDeSelect($event)"
+                >
+            </ng-multiselect-dropdown>
+          </div>
+        </div>
+        <input type="submit"  value="Create project" class="btn btn-primary">
+      
+</form>
+<br>  <br>
+<h4 class="txt txt-primary">{{returnMsg}}</h4>

@@ -1,0 +1,22 @@
+<table class="table table-striped">
+    <tr>
+        <th>PROJECT-ID</th>
+        <th>PROJECT-NAME</th>
+        <th>MEMBERS</th>
+    </tr>
+    <tbody>
+    <tr *ngFor="let p of projectList"> 
+   
+        <td  *ngIf="(p.members).length != 0">{{p.projectId}}</td>
+        <td  *ngIf="(p.members).length != 0">{{p.projectName}}</td>
+        <td  *ngIf="(p.members).length != 0"><table  *ngIf="(p.members).length != 0">
+            <tr style="margin:5px;" *ngFor="let e of p.members">
+
+                <td style="border-radius: 25px; 
+                border: 3px solid #c7b6b6; ">
+                    {{e.empName}}</td>
+            </tr>
+        </table></td>
+    </tr>
+</tbody>
+</table>

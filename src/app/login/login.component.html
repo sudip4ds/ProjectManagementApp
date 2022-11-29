@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div><h3>Project Management Application</h3></div>
+    <br><br>
+    <div class="container">
+    <form [formGroup]="loginForm" (ngSubmit)="login()">
+
+        <div class="form-group">
+            Email : <input formControlName="email" placeholder="Enter Mail-ID" class="form-control">
+            <br>
+            <div *ngIf="loginForm.get('email')?.touched && loginForm.get('email')?.hasError('required')">
+                <p class="alert alert-danger">Email is madatory</p>
+            </div>
+            <div *ngIf="loginForm.get('email')?.touched && loginForm.get('email')?.hasError('pattern')">
+                <p class="alert alert-danger">Enter valid email</p>
+            </div><br>
+            Password :<input formControlName="password" type="password" placeholder="Enter password" class="form-control">
+            <div *ngIf="loginForm.get('password')?.touched && loginForm.get('password')?.hasError('required')">
+                <h6 class="alert alert-danger">Enter password</h6>
+            </div>
+            <br>
+           
+            <input type="submit" [disabled]="loginForm.invalid" value="Login" class="btn btn-primary">
+        </div>
+      </form></div>
+      <div><h4 class="txt txt-danger">{{errorMsg}}</h4></div>
+    
+</body>
+</html>

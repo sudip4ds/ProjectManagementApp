@@ -1,0 +1,57 @@
+<h4 class="txt txt-primary">{{returnMsg}}</h4><br>
+<table class="table table-striped">
+    <tr>
+        <th>PROJECTNAME</th>
+        <th>EMP-ID</th>
+        <th>EMP-NAME</th>
+        <th>EMP-DESIGNATION</th>
+        <th>REQUIRED-SKILLS</th>
+        <th>EMPLOYEE-SKILLS</th>
+        <th>EXPERIENCE</th>
+        <th>ONGOING-PROJECTS</th>
+        <th class="action">ACTION</th>
+    </tr>
+    <h4 class="txt txt-primary">{{returnMsg}}</h4><br>
+    <tbody>
+    <tr *ngFor="let r of requests">
+        <td>{{r.project.projectName}}</td>
+        <td>{{r.employee.empId}}</td>
+        <td>{{r.employee.empName}}</td>
+        <td>{{r.employee.empDesg}}</td>
+        <td><table>
+            <tr style="margin:5px;" *ngFor="let e of r.project.reqSkills">
+
+                <td class="button1">{{e.skillName}}</td>
+            </tr>
+        </table></td>
+        <td><table>
+            <tr style="margin:5px;" *ngFor="let e of r.employee.empSkills">
+
+                <td class="button1">{{e.skillName}}</td>
+            </tr>
+        </table></td>
+        <td>{{r.employee.empExp}}</td>
+        <td><table>
+            <tr style="margin:5px;" *ngFor="let e of r.employee.currentProj" >
+
+                <p  style="border-radius: 25px; 
+                border: 3px solid #c7b6b6; ">
+                    {{e.projectName}}</p>
+            </tr>
+        </table></td>
+   
+        <td *ngIf="!r.status"><button type="button" class="accept" class="btn btn-primary btn-sm" (click)="accept(r)">Accept</button>
+            <button type="button" class="btn btn-danger btn-sm" (click)="reject(r)">Reject</button>
+        </td>
+        <td *ngIf="r.status"><button type="button" class="accept" class="btn btn-success btn-sm" >Accepted</button></td>
+    </tr>
+   
+</tbody>
+</table>
+
+
+
+
+
+
+
