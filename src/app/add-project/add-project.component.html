@@ -1,40 +1,62 @@
-<form [formGroup]="PrAddForm"  (ngSubmit)="onsubmit()">
-    <div class="form-group row">
-        <label for="prname" class="col-sm-4 col-form-label">Project Name:</label>
-        <div class="col-sm-10">
-            <input type="text" formControlName="prname" class="form-control" id="prname" placeholder="Enter project Name">
-        <div *ngIf="PrAddForm.get('prname')?.touched && PrAddForm.get('prname')?.hasError('required')">
-                <p class="alert alert-danger">Name is mandatory</p>
+<section class="vh-100" style="background-color: rgb(238, 238, 238);">
+    <div class="container h-100">
+      <div class="row d-flex justify-content-center align-items-center h-100">
+        <div class="col-lg-12 col-xl-11">
+          <div class="card text-black" style="border-radius: 25px;">
+            <div class="card-body p-md-5">
+              <div class="row justify-content-center">
+                <div class="col-md-10 col-lg-6 col-xl-5 order-2 order-lg-1">
+  
+                  <p class="text-center h1 fw-bold mb-5 mx-1 mx-md-4 mt-4" style="color: rgb(86, 189, 86); font-style: bold" >New Project</p>
+  
+                  <form [formGroup]="PrAddForm"  (ngSubmit)="onsubmit()">
+                    <div class="form-group row">
+                        <label for="prname" class="col-sm-4 col-form-label" style="font-style: italic;">Project Name:</label>
+                        <div class="col-sm-10">
+                            <input type="text" formControlName="prname" class="form-control" id="prname" placeholder="Enter project Name">
+                        <div *ngIf="PrAddForm.get('prname')?.touched && PrAddForm.get('prname')?.hasError('required')">
+                                <p class="alert alert-danger">Name is mandatory</p>
+                            </div>
+                        </div>
+                        <label for="noemp" class="col-sm-6 col-form-label" style="font-style: italic;">Number Of Employee:</label>
+                        <div class="col-sm-10">
+                            <input type="number" formControlName="noemp" class="form-control" id="noemp" placeholder="Enter Number Of Employee">
+                            <div *ngIf="PrAddForm.get('noemp')?.touched && PrAddForm.get('noemp')?.hasError('required')">
+                                <p class="alert alert-danger">Employee is mandatory</p>
+                            </div>
+                        </div>
+                        <label for="deadline" class="col-sm-4 col-form-label"style="font-style: italic;">Dead Line:</label>
+                        <div class="col-sm-10">
+                            <input type="date" formControlName="deadline" class="form-control" id="deadline" placeholder="Enter DeadLine">
+                            <div *ngIf="PrAddForm.get('deadline')?.touched && PrAddForm.get('deadline')?.hasError('required')">
+                                <p class="alert alert-danger">DeadLine is mandatory</p>
+                            </div>
+                        </div>
+                        <label for="req" class="col-sm-4 col-form-label"style="font-style: italic;">Required Skills</label>
+                        <div class="col-sm-10">        </div>
+                        <div style="width:50%">
+                            <ng-multiselect-dropdown
+                                [settings]="dropdownSettings"
+                                [data]="dropdownList"
+                                (onSelect)="onItemSelect($event)"
+                                (onDeSelect)="onItemDeSelect($event)"
+                                >
+                            </ng-multiselect-dropdown>
+                          </div>
+                        </div>
+                        <button type="submit" class="btn btn-outline-success" data-mdb-ripple-color="dark" style="margin-top: -19%; margin-left: 58%;">Add Project</button>
+                </form> 
+                </div>
+                <div class="col-md-10 col-lg-6 col-xl-7 d-flex align-items-center order-1 order-lg-2">
+  
+                  <img src="https://www.mindmeister.com/pages/wp-content/uploads/sites/3/2021/10/Project-Planning-hero.png"
+                    class="img-fluid" alt="Sample image">
+  
+                </div>
+              </div>
             </div>
-        </div>
-        <label for="noemp" class="col-sm-4 col-form-label">Number Of Employee:</label>
-        <div class="col-sm-10">
-            <input type="number" formControlName="noemp" class="form-control" id="noemp" placeholder="Enter Number Of Employee">
-            <div *ngIf="PrAddForm.get('noemp')?.touched && PrAddForm.get('noemp')?.hasError('required')">
-                <p class="alert alert-danger">Employee is mandatory</p>
-            </div>
-        </div>
-        <label for="deadline" class="col-sm-4 col-form-label">Dead Line:</label>
-        <div class="col-sm-10">
-            <input type="date" formControlName="deadline" class="form-control" id="deadline" placeholder="Enter DeadLine">
-            <div *ngIf="PrAddForm.get('deadline')?.touched && PrAddForm.get('deadline')?.hasError('required')">
-                <p class="alert alert-danger">DeadLine is mandatory</p>
-            </div>
-        </div>
-        <label for="req" class="col-sm-4 col-form-label">Required Skills</label>
-        <div class="col-sm-10">        </div>
-        <div style="width:50%">
-            <ng-multiselect-dropdown
-                [settings]="dropdownSettings"
-                [data]="dropdownList"
-                (onSelect)="onItemSelect($event)"
-                (onDeSelect)="onItemDeSelect($event)"
-                >
-            </ng-multiselect-dropdown>
           </div>
         </div>
-        <input type="submit"  value="Create project" class="btn btn-primary">
-      
-</form>
-<br>  <br>
-<h4 class="txt txt-primary">{{returnMsg}}</h4>
+      </div>
+    </div>
+  </section>
