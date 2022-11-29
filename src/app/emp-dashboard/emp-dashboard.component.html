@@ -1,28 +1,60 @@
+
 <h1 class="text-center">All the post for projects</h1>
 <div class="pricing-box-container">
-    <div class="pricing-box text-center">
-        <h5>Free</h5>
-        <p class="price"><sup>$</sup>0<sub>/mo</sub></p>
-        <tr>
-            <th>PROJECT-NAME</th>
-            <th>PROJECT DESCRIPTION</th>
-            <th>REQUIRED SKILLS</th>
-            <th>DEADLINE</th>
-            <th>MIN EXP</th>
-        </tr>
-        <tbody>
-        <tr *ngFor="let p of postList">
-            <td>{{p.projectName.projectName}}</td>
-            <td>{{p.description}}</td>
-            <td><table>
-                <tr style="margin:5px;" *ngFor="let e of p.projectName.reqSkills">
-    
-                    <td class="button1">{{e.skillName}}</td>
+    <div class="pricing-box pricing-box-bg-image text-center">
+        <h5>POST-DETAILS</h5>
+       
+        <table>
+            <tbody>
+                <tr *ngFor="let p of postList"><br>
+            <ul class="features-list">
+                <tr>
+                    <li>
+                        <td>PROJECT-NAME</td>
+                    </li>
+                    <td>{{p.projectName.projectName}}</td>
                 </tr>
-            </table></td>
-            <td>{{p.projectName.deadline}}</td>
-            <td>{{p.minExp}}</td>
-            <td><button class="btn btn-apply" (click)="apply(p)">Apply</button></td>
-        </tr>
-        
+                <tr>
+                    <li>
+                        <td>DESCRIPTION:</td>
+                    </li>
+                    <td>{{p.description}}</td>
+                </tr>
+                <tr>
+                    <li>
+                        <td>MIN-EXP:</td>
+                    </li>
+                    <td>{{p.minExp}}</td>
+                </tr>
+                <tr>
+                    <li>
+                        <td>REQUIRED-SKILLS  :</td>
+                    </li>
+                    <td><table>
+                        <tr style="margin:5px;" *ngFor="let e of p.projectName.reqSkills">
+            
+                            <td class="button1">{{e.skillName}}</td>
+                        </tr>
+                    </table></td>
+                </tr>
+                <tr>
+                    <li>
+                        <td>DEADLINE:</td>
+                    </li>
+                    <td>{{p.projectName.deadline}}</td>
+                </tr>
+                <td><button type="button" class="btn btn-primary btn-apply" (click)="apply(p)">Apply</button></td>
+
+                    
+            </ul>
+        </tbody>
+        </table>
     </div>
+    
+        
+      
+
+
+
+
+   
