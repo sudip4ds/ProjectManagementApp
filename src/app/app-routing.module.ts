@@ -12,6 +12,7 @@ import { EditPostComponent } from './edit-post/edit-post.component';
 import { EmpDashboardComponent } from './emp-dashboard/emp-dashboard.component';
 import { EmpProjectComponent } from './emp-project/emp-project.component';
 import { ErrorPageComponent } from './error-page/error-page.component';
+import { LoginComponent } from './login/login.component';
 import { ProfileComponent } from './profile/profile.component';
 import { RequestsComponent } from './requests/requests.component';
 
