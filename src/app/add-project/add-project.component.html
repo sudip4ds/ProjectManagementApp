@@ -7,10 +7,10 @@
               <div class="row justify-content-center">
                 <div class="col-md-10 col-lg-6 col-xl-5 order-2 order-lg-1">
   
-                  <p class="text-center h1 fw-bold mb-5 mx-1 mx-md-4 mt-4" style="color: rgb(86, 189, 86); font-style: bold" >New Project</p>
+                  <p class="text-center h1 fw-bold mb-5 mx-1 mx-md-4 mt-4" style="color: rgb(86, 189, 86); font-style: italic" >New Project</p>
   
                   <form [formGroup]="PrAddForm"  (ngSubmit)="onsubmit()">
-                    <div class="form-group row">
+                    <div class="form-group row"  style="font-family: cosmic sans,cursive;">
                         <label for="prname" class="col-sm-4 col-form-label" style="font-style: italic;">Project Name:</label>
                         <div class="col-sm-10">
                             <input type="text" formControlName="prname" class="form-control" id="prname" placeholder="Enter project Name">
@@ -44,7 +44,7 @@
                             </ng-multiselect-dropdown>
                           </div>
                         </div>
-                        <button type="submit" class="btn btn-outline-success" data-mdb-ripple-color="dark" style="margin-top: -19%; margin-left: 58%;">Add Project</button>
+                        <button type="submit" class="btn btn-outline-success" data-mdb-ripple-color="dark" style="margin-top: -15%; margin-left: 58%;">Add Project</button>
                 </form> 
                 </div>
                 <div class="col-md-10 col-lg-6 col-xl-7 d-flex align-items-center order-1 order-lg-2">

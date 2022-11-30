@@ -23,7 +23,7 @@
         </div>
         <div class="col-md-8 col-lg-6 col-xl-4 offset-xl-1">
 <form [formGroup]="loginForm" (ngSubmit)="login()">
-    <div class="form-group">
+    <div class="form-group" style="font-family: cosmic sans,cursive;">
         Email : <input formControlName="email" placeholder="Enter Mail-ID" class="form-control">
         <br>
         <div *ngIf="loginForm.get('email')?.touched && loginForm.get('email')?.hasError('required')">
@@ -37,7 +37,7 @@
             <h6 class="alert alert-danger">Enter password</h6>
         </div>
         <br>
-        <input type="submit" [disabled]="loginForm.invalid" value="Login" class="btn btn-primary">
+        <input type="submit" [disabled]="loginForm.invalid" value="Login" class="btn btn-outline-primary">
     </div>
   </form></div>
   <div><h4 class="txt txt-danger">{{errorMsg}}</h4></div>

@@ -43,13 +43,13 @@
               <div class="row justify-content-center">
                 <div class="col-md-10 col-lg-6 col-xl-5 order-2 order-lg-1">
   
-                  <p class="text-center h1 fw-bold mb-5 mx-1 mx-md-4 mt-4" style="color: rgb(60, 123, 206); font-style: bold" >New Post</p>
+                  <p class="text-center h1 fw-bold mb-5 mx-1 mx-md-4 mt-4" style="color: rgb(60, 123, 206); font-style: italic" >New Post</p>
   
                   <form [formGroup]="AddPost" (ngSubmit)="onSubmit()">
-                    <div class="form-group row">
+                    <div class="form-group row" style="font-family: cosmic sans,cursive;">
                         <label for="projectName" class="col-sm-4 col-form-label" style="font-style: italic;">Project Name:</label>
-                        <div class="col-sm-10">
-                            <div class="input-group">
+                        <div class="col-sm-10" >
+                            <div class="input-group" >
                                 <select class="form-select" formControlName="projectName" id="inputGroupSelect04"
                                     aria-label="Example select with button addon">
                                     <option selected disabled>Select Project Name</option>
@@ -68,13 +68,13 @@
                             </div>
                         </div>
                         <div>
-                            <label for="minExp" class="col-sm-4 col-form-label" style="font-style: italic;">Min Experience:</label>
+                            <label for="minExp" class="col-sm-4 col-form-label" style="font-family: cosmic sans,cursive;">Min Experience:</label>
                             <div class="col-sm-10">
                                 <input type="number" formControlName="minExp" id="minExp" name="minExp" min="1" max="10">
                             </div>
                         </div>
                     </div>
-                    <button type="submit" class="btn btn-outline-primary" data-mdb-ripple-color="dark" style="margin-top: -19%; margin-left: 58%;">Add Post</button>
+                    <button type="submit" class="btn btn-outline-primary" data-mdb-ripple-color="dark" style="margin-top: -13%; margin-left: 58%;">Add Post</button>
                 </form>
                 </div>
                 <div class="col-md-10 col-lg-6 col-xl-7 d-flex align-items-center order-1 order-lg-2">
