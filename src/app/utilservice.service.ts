@@ -71,6 +71,18 @@ export class UtilserviceService {
     {responseType:"json"});
 
   }
+  doValidate(){
+    let token=sessionStorage.getItem("token");
+    if(token!=null){
+         return this.httpclient.post('http://localhost:8089/validate/',{},{
+      headers: new HttpHeaders().set('Authorization',token)
+    })
+  }else{
+    return this.httpclient.post('http://localhost:8089/validate/',{},{
+      headers: new HttpHeaders().set('Authorization',"")
+    })
+  }
+  }
 
 
   reject(r:Request){

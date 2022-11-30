@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Route, Router } from '@angular/router';
 import { UtilserviceService } from '../utilservice.service';
 
 @Component({
@@ -8,9 +9,12 @@ import { UtilserviceService } from '../utilservice.service';
 })
 export class AllProjectsComponent implements OnInit {
 
-  constructor(private utilservice:UtilserviceService) { }
+  constructor(private utilservice:UtilserviceService, private router:Router) { }
   projectList:any;
   ngOnInit(): void {
+    this.utilservice.doValidate().subscribe({
+      next: (data) => {
+        if (data) {
     this.utilservice.getAllProjects().subscribe(
       {
         next: (data) => this.projectList=data,
@@ -18,6 +22,11 @@ export class AllProjectsComponent implements OnInit {
         complete: () => console.log("all projects done")
       }
     )
+  }else {
+    this.router.navigateByUrl("sessionError");
+  }
+},
+error:(error)=> this.router.navigateByUrl("sessionError")})
   }
 
 }

@@ -1,7 +1,6 @@
-<p align="right">
-    <button type="button" class="btn btn-primary" routerLink='applypost'>Applied Projects</button>
-</p>
+
 <table class="styled-table">
+    <thead>
     <tr>
         <th>PROJECT-ID</th>
         <th>PROJECT-NAME</th>
@@ -9,6 +8,7 @@
         <th>DEADLINE</th>
            <th>MEMBERS</th>
     </tr>
+</thead>
     <tbody>
     <tr *ngFor="let p of projectList">
         <td>{{p.projectId}}</td>

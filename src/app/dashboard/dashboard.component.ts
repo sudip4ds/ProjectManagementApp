@@ -16,14 +16,22 @@ export class DashboardComponent implements OnInit {
   postList: any;
 
   ngOnInit() {
-    return this.utilservice.getAllPost().subscribe(
-      {
-        next: (data) =>{console.log(data)
-        this.postList=data} ,
-        error: (error) => { console.log(error) },
-        complete: () => console.log("all posts done")
-      }
-    )
+    this.utilservice.doValidate().subscribe({
+      next: (data) => {
+        if (data) {
+          this.utilservice.getAllPost().subscribe({
+            next: (dataa) => {
+              console.log(dataa)
+              this.postList = dataa
+            },
+            error: (error) => { console.log(error) },
+            complete: () => console.log("all posts done")
+          })
+        } else {
+          this.router.navigateByUrl("sessionError");
+        }
+      },
+      error:(error)=> this.router.navigateByUrl("sessionError")})
   }
 
  

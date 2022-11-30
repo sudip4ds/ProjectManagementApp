@@ -3,6 +3,11 @@
 .styled-table td {
     padding: 12px 70px;
 }
+.thead{
+    background-color: #009879;
+    color: #FFFFFF;
+    text-align: left;
+}
 .styled-table tbody tr {
   border-bottom: 1px solid #dddddd;
 }

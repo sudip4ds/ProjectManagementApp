@@ -25,6 +25,7 @@ import { EmpDashboardComponent } from './emp-dashboard/emp-dashboard.component';
 import { ProfileComponent } from './profile/profile.component';
 import { EmpProjectComponent } from './emp-project/emp-project.component';
 import { ErrorPageComponent } from './error-page/error-page.component';
+import { SessionErrorComponent } from './session-error/session-error.component';
 
 
 @NgModule({
@@ -47,7 +48,8 @@ import { ErrorPageComponent } from './error-page/error-page.component';
     EmpDashboardComponent,
     ProfileComponent,
     EmpProjectComponent,
-    ErrorPageComponent
+    ErrorPageComponent,
+    SessionErrorComponent
   ],
   imports: [
     BrowserModule,

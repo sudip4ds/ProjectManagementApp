@@ -18,11 +18,18 @@ export class ProfileComponent implements OnInit {
   id:any;
   employee:Employee | undefined;
   ngOnInit(): void {
+    this.utilservice.doValidate().subscribe({
+      next: (data) => {
+        if (data) {
     this.username=this.utilservice.employee?.empEmail;
     this.utilservice.getEmployee(this.username).subscribe(
          {
          next: (data) => this.profile = data
          }
-         )}
+         )}else {
+          this.router.navigateByUrl("sessionError");
+        }
+      },
+      error:(error)=> this.router.navigateByUrl("sessionError")})}
 
 }

@@ -15,6 +15,7 @@ import { ErrorPageComponent } from './error-page/error-page.component';
 import { LoginComponent } from './login/login.component';
 import { ProfileComponent } from './profile/profile.component';
 import { RequestsComponent } from './requests/requests.component';
+import { SessionErrorComponent } from './session-error/session-error.component';
 
 const routes: Routes = [
   {path:"dashboard",component:DashboardComponent},
@@ -30,7 +31,9 @@ const routes: Routes = [
   {path:"errorPage/:errMsg",component:ErrorPageComponent},
   {path:"empDashboard/:empEmail",component:EmpDashboardComponent},
   {path:"empProject",component:EmpProjectComponent},
-  {path:"profile",component:ProfileComponent}
+  {path:"profile",component:ProfileComponent},
+  {path:"sessionError",component:SessionErrorComponent}
+
 ];
 
 @NgModule({

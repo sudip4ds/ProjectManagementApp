@@ -16,6 +16,7 @@ export class EmpDashboardComponent implements OnInit {
   // ngOnInit(): void {
   // }
 
+
   constructor(private utilservice: UtilserviceService, public router: Router,public route:ActivatedRoute) { }
   postList: any;
   empEmail:any;
@@ -23,16 +24,23 @@ export class EmpDashboardComponent implements OnInit {
   employee:any;
 
   ngOnInit() {
+    this.utilservice.doValidate().subscribe({
+      next: (data) => {
+        if (data) {
     this.empEmail = this.route.snapshot.params["empEmail"];
     this.utilservice.getEmployee(this.empEmail).subscribe({
       next:(data)=> this.employee=data
     });
-
      this.utilservice.getAllPost().subscribe(
       {
         next: (data) => this.postList = data,
         error: (error) => { console.log(error) }      }
     )
+  } else{
+      this.router.navigateByUrl("sessionError");
+    }
+  },
+  error:(error)=> this.router.navigateByUrl("sessionError")})
   }
 
   apply(p:Post){
