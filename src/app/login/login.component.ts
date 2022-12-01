@@ -43,6 +43,7 @@ password:any;
 
     this.utilservice.getUser(new User(this.username,this.password)).subscribe({
       next:(data)=>{
+        console.log(data)
         sessionStorage.setItem("token",data.token);
         this.utilservice.getEmployee(this.username).subscribe(
           (data)=>{
@@ -51,7 +52,7 @@ password:any;
           }
         );
       },
-      error: (error)=>this.errorMsg="username not found",
+      error: (error)=>this.errorMsg="invalid username and password or server error, try again later",
       complete:()=>console.log("verified")
     });
 
